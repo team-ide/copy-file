@@ -1,0 +1,59 @@
+{
+  "name": "copy-file",
+  "displayName": "Copy File Content",
+  "description": "复制文件及其关联文件内容",
+  "version": "0.0.1",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/team-ide/copy-file.git"
+  },
+  "engines": {
+    "vscode": "^1.145.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [],
+  "main": "./extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "copy-file.copyRelatedContent",
+        "title": "复制关联文件内容"
+      }
+    ],
+    "menus": {
+      "explorer/context": [
+        {
+          "command": "copy-file.copyRelatedContent",
+          "when": "resourceScheme == file",
+          "group": "navigation@10"
+        }
+      ],
+      "editor/context": [
+        {
+          "command": "copy-file.copyRelatedContent",
+          "when": "resourceScheme == file",
+          "group": "navigation@10"
+        }
+      ]
+    }
+  },
+  "scripts": {
+    "lint": "eslint .",
+    "pretest": "npm run lint",
+    "test": "vscode-test"
+  },
+  "devDependencies": {
+    "@types/vscode": "^1.145.0",
+    "@types/mocha": "^10.0.10",
+    "@types/node": "24.x",
+    "eslint": "^10.5.0",
+    "@vscode/test-cli": "^0.0.15",
+    "@vscode/test-electron": "^3.0.0"
+  },
+  "overrides": {
+    "diff": "^8.0.4",
+    "serialize-javascript": "^7.0.6"
+  }
+}
